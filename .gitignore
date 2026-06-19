@@ -1,0 +1,20 @@
+# Veritabanı
+*.sql
+
+# Yedekler
+*.zip
+*.rar
+*.bak
+
+# Kullanıcı yüklemeleri
+/assets/uploads/*
+
+# VS Code
+.vscode/
+
+# Log dosyaları
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
