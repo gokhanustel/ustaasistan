@@ -1,30 +1,32 @@
 <?php
 
-$host = "localhost";
-$dbname = "ustaasistan";
-$username = "root";
-$password = "";
+declare(strict_types=1);
+
+/*
+|--------------------------------------------------------------------------
+| Veritabanı Ayarları
+|--------------------------------------------------------------------------
+*/
+
+$dbHost = 'localhost';
+$dbName = 'ustaasistan';
+$dbUser = 'root';
+$dbPass = '';
 
 try {
 
     $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
-        $username,
-        $password
-    );
-
-    $pdo->setAttribute(
-        PDO::ATTR_ERRMODE,
-        PDO::ERRMODE_EXCEPTION
-    );
-
-    $pdo->setAttribute(
-        PDO::ATTR_DEFAULT_FETCH_MODE,
-        PDO::FETCH_ASSOC
+        "mysql:host={$dbHost};dbname={$dbName};charset=utf8mb4",
+        $dbUser,
+        $dbPass,
+        [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false
+        ]
     );
 
 } catch (PDOException $e) {
 
-    die("Veritabanı bağlantı hatası.");
-
+    die('Veritabanı bağlantı hatası.');
 }
